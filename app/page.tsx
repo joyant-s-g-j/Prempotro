@@ -1,5 +1,5 @@
 export default function Home() {
   return (
-    <div>hello prempotro</div>
+    <div className="font-bangla">প্রেমপত্র</div>
   );
 }

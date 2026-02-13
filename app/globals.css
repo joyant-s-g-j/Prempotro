@@ -1,1 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 @import "tailwindcss";
+
+@font-face {
+  font-family: 'BanglaCustom';
+  src: url('/font/Li_Alinur_Deyalika_Unicode.ttf') format('truetype');
+  font-display: swap;
+  font-weight: normal;
+}
+
+:root {
+  /* Primary Romantic Colors */
+  --color-primary: #ff2d75;
+  --color-primary-light: #ff5c8d;
+  --color-primary-dark: #d41459;
+  --color-secondary: #8b5cf6;
+  --color-accent: #f97316;
+  
+  /* Modern Gradient Colors */
+  --color-gradient-start: #ff0844;
+  --color-gradient-mid: #ff6b9d;
+  --color-gradient-end: #c850c0;
+
+  /* Typography */
+  --font-body: 'Inter Tight', sans-serif;
+  --font-display: 'Inter Tight', sans-serif;
+  --font-handwriting: 'Satisfy', cursive;
+  --font-bangla: 'BanglaCustom', serif;
+}
+
+/* Custom Font Utilities */
+.font-bangla {
+  font-family: 'BanglaCustom', serif;
+}
+
+.font-handwriting {
+  font-family: 'Satisfy', cursive;
+}
+
+.font-inter {
+  font-family: 'Inter Tight', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background: #fafafa;
+  color: #1a1a2e;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
