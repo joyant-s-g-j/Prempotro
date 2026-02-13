@@ -12,7 +12,7 @@ const SuccessPage = () => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setShareUrl(`${window.location.origin}/surprise/${id}`);
+      setShareUrl(`${window.location.origin}/letter/${id}`);
     }
   }, [id]);
 

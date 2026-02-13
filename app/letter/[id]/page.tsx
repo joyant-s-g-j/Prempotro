@@ -1,5 +1,7 @@
 "use client"
 
+import LetterEnvelope from '@/components/LetterEnvelope';
+import LetterReader from '@/components/LetterReader';
 import { ValentineData } from '@/types/valentine';
 import { getValentine } from '@/types/valentine-service';
 import Link from 'next/link';
@@ -38,13 +40,10 @@ const LetterPage = () => {
   }, [id]);
 
   const handleOpenLetter = useCallback(() => {
-    // Transition from sealed to reading
     setCurrentScene("reading");
   }, []);
 
   const handleReadingComplete = useCallback(() => {
-    // Maybe show a final "Replay" or "Create Yours" button gently
-    // We can just set a flag to show the footer
     setCurrentScene("end");
   }, []);
 
@@ -72,7 +71,38 @@ const LetterPage = () => {
     );
   }
   return (
-    <div>LetterPage</div>
+    <div className="fixed inset-0 bg-[#1a1a1a] overflow-hidden font-inter">
+        <div className={`absolute inset-0 transition-opacity duration-1000 ${currentScene === "sealed" ? "opacity-100 z-20" : "opacity-0 pointer-events-none z-0"}`}>
+            {currentScene === "sealed" && (
+                <LetterEnvelope 
+                    recipientName={valentine.partnerName} 
+                    onClick={handleOpenLetter} 
+                />
+            )}
+      </div>
+
+      <div className={`absolute inset-0 transition-opacity duration-2000 ${currentScene === "reading" || currentScene === "end" ? "opacity-100 z-10" : "opacity-0 pointer-events-none"}`}>
+        {(currentScene === "reading" || currentScene === "end") && (
+            <LetterReader 
+                message={valentine.loveMessage} 
+                photos={valentine.photos} 
+                partnerName={valentine.partnerName}
+                onComplete={handleReadingComplete}
+            />
+        )}
+      </div>
+
+      {currentScene === "end" && (
+        <div className="fixed bottom-0 left-0 right-0 p-8 text-center bg-linear-to-t from-[#fdfbf7] via-[#fdfbf7]/90 to-transparent z-30 animate-fade-in" style={{ animationDelay: "1s" }}>
+          <p className="text-[#5c4d3c] mb-4 font-inter italic text-sm">
+            You reached the end of the letter.
+          </p>
+          <Link href="/" className="inline-block text-[#8b0000] border-b border-[#8b0000]/30 hover:border-[#8b0000] transition-colors font-handwriting text-xl tracking-wide">
+            Send your own digital love letter with <span className="font-bangla text-2xl">প্রেমপত্র</span>
+          </Link>
+        </div>
+      )}
+    </div>
   )
 }
 
