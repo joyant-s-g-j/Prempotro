@@ -68,3 +68,21 @@ export async function createValentine(input: CreateValentineInput): Promise<Vale
 
     return valentineData
 }
+
+export async function getValentine(id:string): Promise<ValentineData | null> {
+    try {
+        const data = await localDB.get(id)
+        if(!data) return null;
+        return {
+            ...data,
+            createdAt: new Date(data.createdAt)
+        }
+    } catch (error) {
+        console.error('Error retrieving valentine:', error);
+        return null;
+    }
+}
+
+export async function deleteValentine(id:string): Promise<void> {
+    console.log('Delete not implemented for localDB wrapper yet')    
+}
