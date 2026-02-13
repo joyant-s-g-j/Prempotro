@@ -10,15 +10,15 @@ function Textarea({ label, error, required, ...props }: TextareaProps) {
   return (
     <div className="group flex flex-col gap-2">
       <div className="flex justify-between items-center px-1">
-        <label className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#5c4d3c]/50 group-focus-within:text-[#8b0000] transition-colors">
-          {label}
-        </label>
-        {required && <span className="text-[#8b0000]/30 text-[10px]">REQUIRED</span>}
+        <label className="block text-lg font-trio font-semibold text-rose-800/80 mb-1.5 transition-colors group-focus-within:text-rose-600">
+        {label} 
+        {required && <span className="ml-1 text-rose-500">*</span>}
+      </label>
       </div>
       
       <div className="relative">
         <textarea 
-          className="w-full px-5 py-4 bg-white/40 backdrop-blur-sm border border-[#e2d5c3] focus:border-[#8b0000]/40 rounded-2xl outline-none transition-all duration-300 placeholder:text-gray-300 text-[#2c1810] focus:bg-white focus:shadow-[0_10px_40px_-15px_rgba(139,0,0,0.1)] hover:bg-white/60 resize-none min-h-30"
+          className="w-full font-trio px-5 py-3.5 bg-white/70 backdrop-blur-sm border-2 border-transparent focus:border-rose-400 rounded-2xl outline-none shadow-sm transition-all duration-300 placeholder:text-rose-300 focus:bg-white focus:shadow-[0_0_0_4px_rgba(255,107,157,0.15)] ring-offset-2 hover:bg-white/90"
           {...props}
         />
         {/* Modern Interactive Underline */}

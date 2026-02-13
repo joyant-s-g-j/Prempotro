@@ -51,17 +51,17 @@ const SuccessPage = () => {
             <span className="text-5xl animate-pulse">💌</span>
           </div>
 
-          <h1 className="text-3xl md:text-4xl font-bold mb-3 bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-purple-600 font-bangla">
+          <h1 className="text-3xl md:text-4xl font-bold mb-3 bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-purple-600 font-trio">
             আপনার প্রেমপত্র তৈরি হয়েছে!
           </h1>
 
-          <p className="text-gray-600 text-lg mb-8 font-medium">
-            Share this digital love letter with your special someone 💕
+          <p className="text-gray-600 text-lg mb-8 font-medium font-trio">
+            আপনার প্রিয়জনের সাথে এই ডিজিটাল প্রেমপত্রটি শেয়ার করুন 💕
           </p>
 
           {/* Link Display */}
           <div className="mb-8 p-4 bg-slate-900 rounded-2xl border border-slate-800 text-left shadow-inner overflow-hidden group relative">
-            <p className="text-xs text-slate-400 font-mono mb-1 uppercase tracking-wider">Share this link:</p>
+            <p className="text-xs text-slate-400 font-trio mb-1 uppercase tracking-wider">এই লিঙ্কটি শেয়ার করুন:</p>
             <div className="flex items-center justify-between gap-3">
               <a 
                 href={shareUrl} 
@@ -78,14 +78,14 @@ const SuccessPage = () => {
           <Button
             onClick={copyToClipboard}
             fullWidth
-            className={`mb-8 ${copied ? "bg-green-500! shadow-green-500/30!" : ""}`}
+            className={`mb-8 font-trio ${copied ? "bg-green-500! shadow-green-500/30!" : ""}`}
           >
-            {copied ? "✓ Copied to clipboard!" : "📋 Copy Link"}
+            {copied ? "✓ ক্লিপবোর্ডে কপি হয়েছে!" : "📋 লিঙ্ক কপি করুন"}
           </Button>
 
           {/* Share Buttons */}
           <div className="mb-8">
-            <p className="text-gray-400 text-sm font-medium mb-4 uppercase tracking-wide">Or share directly</p>
+            <p className="text-gray-400 text-sm font-medium mb-4 uppercase tracking-wide font-trio">অথবা সরাসরি শেয়ার করুন</p>
             <button 
                 onClick={shareOnFacebook} 
                 className="flex items-center gap-2 px-5 py-2.5 bg-[#1877F2] text-white rounded-full font-medium hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-blue-500/20"
@@ -98,17 +98,17 @@ const SuccessPage = () => {
           <div className="pt-6 border-t border-gray-100 flex flex-col gap-4">
             <Link
               href={`/letter/${id}`}
-              className="inline-flex items-center justify-center gap-2 text-rose-500 hover:text-rose-600 font-bold transition-colors group"
+              className="inline-flex items-center justify-center gap-2 text-rose-500 hover:text-rose-600 font-bold transition-colors group font-trio"
             >
-              👀 Preview your letter
+              👀 প্রেমপত্রটি দেখুন
               <span className="group-hover:translate-x-1 transition-transform">→</span>
             </Link>
             
             <Link
               href="/"
-              className="text-gray-400 hover:text-gray-600 text-sm font-medium transition-colors"
+              className="text-gray-400 hover:text-gray-600 text-sm font-medium transition-colors font-trio"
             >
-              ← Create another letter
+              ← আরেকটি প্রেমপত্র তৈরি করুন
             </Link>
           </div>
         </GlassCard>

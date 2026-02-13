@@ -48,11 +48,11 @@ const PhotoUpload = ({
     };
   return (
     <div className="group relative">
-      <label className="block text-sm font-semibold text-rose-800/80 mb-1.5 transition-colors group-focus-within:text-rose-600">
+      <label className="block text-lg font-trio font-semibold text-rose-800/80 mb-1.5 transition-colors group-focus-within:text-rose-600">
         {label} 
         {required && <span className="ml-1 text-rose-500">*</span>}
-        <span className="ml-2 text-xs text-rose-400 font-medium bg-rose-50 px-2 py-0.5 rounded-full border border-rose-100">
-          Max {maxFiles} photos (JPEG/PNG)
+        <span className="ml-2 text-xs text-rose-400 font-medium bg-rose-50 px-2 py-0.5 rounded-full border border-rose-100 font-trio">
+          সর্বোচ্চ {maxFiles}টি ছবি (JPEG/PNG)
         </span>
       </label>
 
@@ -88,11 +88,11 @@ const PhotoUpload = ({
         </div>
         
         <div className="text-center space-y-1">
-          <p className="font-semibold text-rose-900 text-lg">
-            {files.length >= maxFiles ? "Limit Reached!" : "Drop photos here"}
+          <p className="font-semibold text-rose-900 text-lg font-trio">
+            {files.length >= maxFiles ? "সীমা পূর্ণ হয়েছে!" : "এখানে ছবিগুলো রাখুন"}
           </p>
-          <p className="text-sm text-rose-400 font-medium">
-            or click to browse
+          <p className="text-sm text-rose-400 font-medium font-trio">
+            অথবা ব্রাউজ করতে ক্লিক করুন
           </p>
         </div>
       </div>

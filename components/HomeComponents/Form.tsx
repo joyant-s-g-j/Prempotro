@@ -37,9 +37,9 @@ const Form = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    if (!name.trim()) return setError("Please enter your name")
-    if (!partnerName.trim()) return setError("Please enter your partner's name")
-    if (!loveMessage.trim()) return setError("Please write your love message")
+    if (!name.trim()) return setError("অনুগ্রহ করে আপনার নাম লিখুন")
+    if (!partnerName.trim()) return setError("অনুগ্রহ করে আপনার প্রিয়জনের নাম লিখুন")
+    if (!loveMessage.trim()) return setError("অনুগ্রহ করে আপনার ভালোবাসার বার্তাটি লিখুন")
 
     setIsSubmitting(true)
     setError(null)
@@ -54,7 +54,7 @@ const Form = () => {
         router.push(`/success/${valentine.id}`)
     } catch (err) {
         console.error("Error creating valentine:", err);
-        setError("Something went wrong. Please try again.");
+        setError("কিছু ভুল হয়েছে। দয়া করে আবার চেষ্টা করুন।");
         setIsSubmitting(false);
     }
   }
@@ -62,9 +62,9 @@ const Form = () => {
     <form onSubmit={handleSubmit} className='space-y-8'>
 
         <Input 
-            label="Your Name"
+            label="আপনার নাম"
             type='text'
-            placeholder="Enter their your name..."
+            placeholder="আপনার নাম লিখুন..."
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
@@ -72,9 +72,9 @@ const Form = () => {
         />
 
         <Input 
-            label="Your Partner's Name"
+            label="আপনার প্রিয়জনের নাম"
             type='text'
-            placeholder="Enter their your partner's name..."
+            placeholder="আপনার প্রিয়জনের নাম লিখুন..."
             value={partnerName}
             onChange={(e) => setPartnerName(e.target.value)}
             required
@@ -82,7 +82,7 @@ const Form = () => {
         />
 
         <PhotoUpload 
-            label="Upload Photos (Optional, max 5)"
+            label="ছবি আপলোড করুন"
             files={photos}
             previews={photosPreviews}
             onFilesChange={handleFilesChange}
@@ -90,8 +90,8 @@ const Form = () => {
         />
 
         <Textarea 
-            label="Your Love Message"
-            placeholder="Pour your heart out... Write what they mean to you 💕"
+            label="আপনার ভালোবাসার বার্তা"
+            placeholder="আপনার হৃদয়ের সবটুকু ভালোবাসা দিয়ে লিখুন... 💕"
             value={loveMessage}
             onChange={(e) => setLoveMessage(e.target.value)}
             required
@@ -100,7 +100,7 @@ const Form = () => {
         />
 
         {error && (
-            <div className="p-4 bg-red-50 border border-red-200 text-red-600 rounded-xl text-center font-medium animate-shake">
+            <div className="p-4 bg-red-50 border border-red-200 text-red-600 rounded-xl text-center font-trio font-medium animate-shake">
             {error}
             </div>
         )}
@@ -110,11 +110,11 @@ const Form = () => {
             fullWidth 
             isLoading={isSubmitting}
         >
-            ✨ Generate Letter
+            ✨ প্রেমপত্র তৈরি করুন
         </Button>
 
-        <p className="text-center text-gray-500 text-sm font-medium">
-            Your letter will be ready to share in seconds!
+        <p className="text-center text-gray-500 text-sm font-trio text-lg">
+            আপনার প্রেমপত্রটি কয়েক সেকেন্ডের মধ্যেই তৈরি হয়ে যাবে!
         </p>
     </form>
   )

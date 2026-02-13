@@ -12,10 +12,10 @@ const Header = () => {
             </h1>
         </div>
         
-        <p className="text-lg text-[#5c4d3c]/80 max-w-lg mx-auto leading-relaxed font-inter italic animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            "Write a letter that lasts forever..."
+        <p className="text-xl text-[#5c4d3c]/80 max-w-lg mx-auto leading-relaxed font-bangla animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            আপনার প্রিয় মানুষের জন্য এমন একটি চিঠি
             <br />
-            Create a timeless, digital reading experience for your beloved.
+            লিখুন যা সময়ের সঙ্গে হারিয়ে যাবে না
         </p>
     </header>
   )

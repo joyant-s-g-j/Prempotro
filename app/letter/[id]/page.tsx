@@ -51,7 +51,7 @@ const LetterPage = () => {
     return (
       <div className="fixed inset-0 bg-[#f8f5f0] flex flex-col items-center justify-center gap-4">
         <div className="text-4xl animate-pulse text-[#2c1810]">💌</div>
-        <p className="text-[#5c4d3c] font-inter text-lg tracking-wider">Retrieving letter...</p>
+        <p className="text-[#5c4d3c] font-trio text-lg tracking-wider">প্রেমপত্রটি আনা হচ্ছে...</p>
       </div>
     );
   }
@@ -59,12 +59,12 @@ const LetterPage = () => {
   if (error || !valentine) {
     return (
       <div className="fixed inset-0 bg-[#f8f5f0] flex items-center justify-center p-4">
-        <div className="text-center max-w-md p-8 border border-[#e2d5c3] shadow-lg bg-white">
+        <div className="text-center max-w-md p-8 border border-[#e2d5c3] shadow-lg bg-white font-trio">
           <div className="text-4xl mb-6">🥀</div>
-          <h1 className="text-2xl font-inter text-[#2c1810] mb-4">Letter Not Found</h1>
-          <p className="text-[#5c4d3c] mb-6 font-inter">{error || "This letter has been lost to the winds of time."}</p>
-          <Link href="/" className="inline-block px-6 py-2 border border-[#2c1810] text-[#2c1810] hover:bg-[#2c1810] hover:text-[#f8f5f0] transition-colors font-inter uppercase tracking-widest text-sm">
-            Write a New Letter
+          <h1 className="text-2xl font-bold text-[#2c1810] mb-4">প্রেমপত্রটি পাওয়া যায়নি</h1>
+          <p className="text-[#5c4d3c] mb-6">{error || "এই প্রেমপত্রটি সময়ের আবর্তে হারিয়ে গেছে।"}</p>
+          <Link href="/" className="inline-block px-6 py-2 border border-[#2c1810] text-[#2c1810] hover:bg-[#2c1810] hover:text-[#f8f5f0] transition-colors uppercase tracking-widest text-sm font-bold">
+            নতুন প্রেমপত্র লিখুন
           </Link>
         </div>
       </div>

@@ -22,7 +22,7 @@ const LetterEnvelope = ({ recipientName, onClick }: LetterEnvelopeProps) => {
       muted: "text-[#f0e6d2]/60"
     },
     fonts: {
-      bangla: "font-bangla",
+      bangla: "font-trio",
       inter: "font-inter",
       body: "font-inter"
     }
@@ -89,12 +89,12 @@ const LetterEnvelope = ({ recipientName, onClick }: LetterEnvelopeProps) => {
       </div>
 
       <div className="mt-16 text-center space-y-4 animate-fade-in-up">
-        <h2 className={`text-2xl md:text-4xl ${theme.fonts.bangla} font-medium tracking-wide leading-tight`}>
-          তোমার নামে একটি প্রেমপত্র এসেছে
+        <h2 className={`text-2xl md:text-4xl font-bangla font-medium tracking-wide leading-tight`}>
+          {recipientName}, আপনার জন্য একটি প্রেমপত্র আছে
         </h2>
         <div className="flex flex-col items-center gap-2">
-          <p className={`text-xs md:text-sm ${theme.colors.muted} font-medium uppercase tracking-[0.4em]`}>
-            Tap to Open Ceremony
+          <p className={`text-xs md:text-sm ${theme.colors.muted} font-medium uppercase tracking-[0.4em] font-trio`}>
+            খোলার জন্য এখানে ট্যাপ করুন
           </p>
           <div className="w-1 h-12 bg-linear-to-b from-white/20 to-transparent"></div>
         </div>
