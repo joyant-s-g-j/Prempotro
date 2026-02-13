@@ -3,6 +3,7 @@ import { createValentine } from '@/types/valentine-service'
 import { useRouter } from 'next/navigation'
 import React, { useCallback, useState } from 'react'
 import FloatingHearts from '../FloatingHearts'
+import Header from './Header'
 
 const HomeComponent = () => {
   const router = useRouter()
@@ -60,6 +61,13 @@ const HomeComponent = () => {
     <main className="min-h-dvh relative flex flex-col justify-center items-center overflow-x-hidden vintage-paper">
       <div className="fixed inset-0 vintage-vignette -z-10" />
       <FloatingHearts count={12} />
+
+      <div className="fixed -top-50 -right-25 w-125 h-125 rounded-full bg-linear-to-br from-orange-200/20 to-rose-200/10 blur-3xl pointer-events-none" />
+      <div className="fixed -bottom-50 -left-25 w-125 h-125 rounded-full bg-linear-to-tr from-rose-200/20 to-orange-200/10 blur-3xl pointer-events-none" />
+
+      <div className="relative z-10 w-full max-w-2xl mx-auto px-6 py-12 md:py-10">
+        <Header />
+      </div>
     </main>
   )
 }
