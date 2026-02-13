@@ -3,7 +3,7 @@ export interface ValentineData {
     partnerName: string;
     photos: string[];
     loveMessage: string;
-    createdAt: string;
+    createdAt: Date;
 }
 
 export interface CreateValentineInput {
