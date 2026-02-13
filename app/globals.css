@@ -94,6 +94,13 @@ h1, h2, h3, h4 {
   background-size: cover;
 }
 
+.vintage-card {
+  background-image: url('/vintage.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
 .vintage-card::before {
   content: '';
   position: absolute;

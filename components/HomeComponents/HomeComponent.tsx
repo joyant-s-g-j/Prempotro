@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation'
 import React, { useCallback, useState } from 'react'
 import FloatingHearts from '../FloatingHearts'
 import Header from './Header'
+import { Button, GlassCard, Input, PhotoUpload, Textarea } from '../ui'
 
 const HomeComponent = () => {
   const router = useRouter()
@@ -67,6 +68,64 @@ const HomeComponent = () => {
 
       <div className="relative z-10 w-full max-w-2xl mx-auto px-6 py-12 md:py-10">
         <Header />
+
+        <GlassCard className="p-8 md:p-12 animate-fade-in-up vintage-card" style={{ animationDelay: '0.4s' }}>
+          <form onSubmit={handleSubmit} className='space-y-8'>
+
+            <Input 
+              label="Your Partner's Name"
+              type='text'
+              placeholder="Enter their beautiful name..."
+              value={partnerName}
+              onChange={(e) => setPartnerName(e.target.value)}
+              required
+              maxLength={50}
+            />
+
+            <PhotoUpload 
+              label="Upload Photos (Optional, max 5)"
+              files={photos}
+              previews={photosPreviews}
+              onFilesChange={handleFilesChange}
+              onRemove={handleRemovePhoto}
+            />
+
+            <Textarea 
+              label="Your Love Message"
+              placeholder="Pour your heart out... Write what they mean to you 💕"
+              value={loveMessage}
+              onChange={(e) => setLoveMessage(e.target.value)}
+              required
+              rows={6}
+              maxLength={2000}
+            />
+
+            {error && (
+              <div className="p-4 bg-red-50 border border-red-200 text-red-600 rounded-xl text-center font-medium animate-shake">
+                {error}
+              </div>
+            )}
+
+            <Button 
+              type="submit" 
+              fullWidth 
+              isLoading={isSubmitting}
+            >
+              ✨ Generate Letter
+            </Button>
+
+            <p className="text-center text-gray-500 text-sm font-medium">
+              Your letter will be ready to share in seconds!
+            </p>
+          </form>
+        </GlassCard>
+
+        <footer className="text-center mt-12 text-dark-400 text-sm font-medium animate-fade-in" style={{ animationDelay: '0.8s' }}>
+          <p>Made with 💕 for lovers. Made by{' '}
+          <a href="https://www.joyantsgj.dev" target="_blank" rel="noopener noreferrer" className="font-bold hover:text-dark-500 transition-colors">
+            Joyant
+          </a></p>
+        </footer>
       </div>
     </main>
   )
