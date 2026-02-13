@@ -1,7 +1,5 @@
-
-import FloatingHearts from '../FloatingHearts'
 import Header from './Header'
-import { GlassCard } from '../ui'
+import { FloatingHearts, GlassCard } from '../ui'
 import Form from './Form'
 
 const HomeComponent = () => {
