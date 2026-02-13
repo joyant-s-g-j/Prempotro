@@ -1,3 +1,4 @@
+import { createValentine } from '@/types/valentine-service'
 import { useRouter } from 'next/navigation'
 import React, { useCallback, useState } from 'react'
 
@@ -25,6 +26,34 @@ const HomeComponent = () => {
         reader.readAsDataURL(file)
     })
   }, [photos])
+
+  const handleRemovePhoto = (index: number) => {
+    setPhotos(prev => prev.filter((_, i) => i !== index))
+    setPhotosPreviews(prev => prev.filter((_, i) => i !== index))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+
+    if (!partnerName.trim()) return setError("Please enter your partner's name")
+    if (!loveMessage.trim()) return setError("Please write your love message")
+
+    setIsSubmitting(true)
+    setError(null)
+
+    try {
+        const valentine = await createValentine({
+            partnerName: partnerName.trim(),
+            photos,
+            loveMessage: loveMessage.trim()
+        })
+        router.push(`/success/${valentine.id}`)
+    } catch (err) {
+        console.error("Error creating valentine:", err);
+        setError("Something went wrong. Please try again.");
+        setIsSubmitting(false);
+    }
+  }
   return (
     <div>HomeComponent</div>
   )
