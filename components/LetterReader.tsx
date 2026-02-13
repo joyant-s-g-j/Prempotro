@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 
 interface LetterReaderProps {
+  name: string;
   message: string;
   photos: string[];
   partnerName: string;
@@ -31,7 +32,7 @@ const MemoryCard = ({ src, index }: MemoryCardProps) => (
   </div>
 );
 
-const LetterReader = ({ message, photos, partnerName, onComplete }: LetterReaderProps) => {
+const LetterReader = ({name, message, photos, partnerName, onComplete }: LetterReaderProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [paragraphs, setParagraphs] = useState<string[]>([]);
 
@@ -118,7 +119,7 @@ const LetterReader = ({ message, photos, partnerName, onComplete }: LetterReader
       <div key="signature" className="mt-20 mb-10 text-right">
         <p className={`${theme.font.bangla} text-4xl ${theme.color.muted} mb-2`}>ইতি,</p>
         <p className={`${theme.font.bangla} text-4xl md:text-6xl ${theme.color.accent} font-bold drop-shadow-sm`}>
-          তোমারই 
+          {name}
         </p>
       </div>
     );

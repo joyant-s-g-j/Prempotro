@@ -53,6 +53,7 @@ export async function createValentine(input: CreateValentineInput): Promise<Vale
     )
     const valentineData: ValentineData = {
         id,
+        name: input.name,
         partnerName: input.partnerName,
         photos: photoUrls,
         loveMessage: input.loveMessage,

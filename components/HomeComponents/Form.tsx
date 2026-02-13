@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 
 const Form = () => {
   const router = useRouter()
-
+  const [name, setName] = useState("")
   const [partnerName, setPartnerName] = useState("")
   const [photos, setPhotos] = useState<File[]>([])
   const [photosPreviews, setPhotosPreviews] = useState<string[]>([])
@@ -37,6 +37,7 @@ const Form = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
+    if (!name.trim()) return setError("Please enter your name")
     if (!partnerName.trim()) return setError("Please enter your partner's name")
     if (!loveMessage.trim()) return setError("Please write your love message")
 
@@ -45,6 +46,7 @@ const Form = () => {
 
     try {
         const valentine = await createValentine({
+            name: name.trim(),
             partnerName: partnerName.trim(),
             photos,
             loveMessage: loveMessage.trim()
@@ -60,9 +62,19 @@ const Form = () => {
     <form onSubmit={handleSubmit} className='space-y-8'>
 
         <Input 
+            label="Your Name"
+            type='text'
+            placeholder="Enter their your name..."
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+            maxLength={50}
+        />
+
+        <Input 
             label="Your Partner's Name"
             type='text'
-            placeholder="Enter their beautiful name..."
+            placeholder="Enter their your partner's name..."
             value={partnerName}
             onChange={(e) => setPartnerName(e.target.value)}
             required

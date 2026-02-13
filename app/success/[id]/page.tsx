@@ -97,7 +97,7 @@ const SuccessPage = () => {
           {/* Preview Link */}
           <div className="pt-6 border-t border-gray-100 flex flex-col gap-4">
             <Link
-              href={`/surprise/${id}`}
+              href={`/letter/${id}`}
               className="inline-flex items-center justify-center gap-2 text-rose-500 hover:text-rose-600 font-bold transition-colors group"
             >
               👀 Preview your letter

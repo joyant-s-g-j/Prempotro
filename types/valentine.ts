@@ -1,5 +1,6 @@
 export interface ValentineData {
     id: string;
+    name: string;
     partnerName: string;
     photos: string[];
     loveMessage: string;
@@ -7,6 +8,7 @@ export interface ValentineData {
 }
 
 export interface CreateValentineInput {
+    name: string;
     partnerName: string;
     photos: File[];
     loveMessage: string;

@@ -83,7 +83,8 @@ const LetterPage = () => {
 
       <div className={`absolute inset-0 transition-opacity duration-2000 ${currentScene === "reading" || currentScene === "end" ? "opacity-100 z-10" : "opacity-0 pointer-events-none"}`}>
         {(currentScene === "reading" || currentScene === "end") && (
-            <LetterReader 
+            <LetterReader
+                name={valentine.name} 
                 message={valentine.loveMessage} 
                 photos={valentine.photos} 
                 partnerName={valentine.partnerName}
