@@ -1,6 +1,8 @@
+"use client"
 import { createValentine } from '@/types/valentine-service'
 import { useRouter } from 'next/navigation'
 import React, { useCallback, useState } from 'react'
+import FloatingHearts from '../FloatingHearts'
 
 const HomeComponent = () => {
   const router = useRouter()
@@ -55,7 +57,10 @@ const HomeComponent = () => {
     }
   }
   return (
-    <div>HomeComponent</div>
+    <main className="min-h-dvh relative flex flex-col justify-center items-center overflow-x-hidden vintage-paper">
+      <div className="fixed inset-0 vintage-vignette -z-10" />
+      <FloatingHearts count={12} />
+    </main>
   )
 }
 

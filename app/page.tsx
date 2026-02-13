@@ -1,5 +1,7 @@
+import HomeComponent from "@/components/HomeComponents/HomeComponent";
+
 export default function Home() {
   return (
-    <div className="font-bangla">প্রেমপত্র</div>
+    <HomeComponent />
   );
 }
