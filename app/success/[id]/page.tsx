@@ -25,13 +25,6 @@ const SuccessPage = () => {
       console.error("Failed to copy:", err);
     }
   };
-
-  const shareOnFacebook = () => {
-    window.open(
-      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`,
-      "_blank"
-    );
-  };
   return (
     <main className="min-h-dvh relative flex items-center justify-center p-4 vintage-paper">
       {/* Background */}
@@ -82,17 +75,6 @@ const SuccessPage = () => {
           >
             {copied ? "✓ ক্লিপবোর্ডে কপি হয়েছে!" : "📋 লিঙ্ক কপি করুন"}
           </Button>
-
-          {/* Share Buttons */}
-          <div className="mb-8">
-            <p className="text-gray-400 text-sm font-medium mb-4 uppercase tracking-wide font-trio">অথবা সরাসরি শেয়ার করুন</p>
-            <button 
-                onClick={shareOnFacebook} 
-                className="flex items-center gap-2 px-5 py-2.5 bg-[#1877F2] text-white rounded-full font-medium hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-blue-500/20"
-              >
-              📘 Facebook
-            </button>
-          </div>
 
           {/* Preview Link */}
           <div className="pt-6 border-t border-gray-100 flex flex-col gap-4">

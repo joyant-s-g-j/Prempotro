@@ -1,4 +1,5 @@
-import { localDB } from "@/lib/db";
+import { db } from "@/lib/firebase";
+import { doc, getDoc, setDoc, deleteDoc } from "firebase/firestore";
 import { CreateValentineInput, ValentineData } from "./valentine";
 
 function generateId(): string {
@@ -51,39 +52,59 @@ export async function createValentine(input: CreateValentineInput): Promise<Vale
     const photoUrls = await Promise.all(
         input.photos.map(file => compressImage(file))
     )
-    const valentineData: ValentineData = {
+    
+    const valentineData = {
         id,
         name: input.name,
         partnerName: input.partnerName,
         photos: photoUrls,
         loveMessage: input.loveMessage,
-        createdAt: new Date()
+        createdAt: new Date().toISOString()
     };
 
     try {
-        await localDB.save(id, valentineData)
-    } catch (error) {
-        console.error('Failed to save valentine data:', error)
-        throw new Error('Storage limit exceeded or permission denied')
+        await setDoc(doc(db, "valentines", id), valentineData);
+    } catch (error: any) {
+        console.error('Failed to save valentine data to Firebase:', error)
+        throw new Error('Firebase save failed: ' + error.message)
     }
 
-    return valentineData
+    return {
+        ...valentineData,
+        createdAt: new Date(valentineData.createdAt)
+    }
 }
 
 export async function getValentine(id:string): Promise<ValentineData | null> {
     try {
-        const data = await localDB.get(id)
-        if(!data) return null;
-        return {
-            ...data,
-            createdAt: new Date(data.createdAt)
+        const docRef = doc(db, "valentines", id);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            const data = docSnap.data();
+            return {
+                id: data.id,
+                name: data.name,
+                partnerName: data.partnerName,
+                photos: data.photos,
+                loveMessage: data.loveMessage,
+                createdAt: new Date(data.createdAt)
+            } as ValentineData;
+        } else {
+            console.error('No such document in Firebase!');
+            return null;
         }
     } catch (error) {
-        console.error('Error retrieving valentine:', error);
+        console.error('Unexpected error retrieving valentine:', error);
         return null;
     }
 }
 
 export async function deleteValentine(id:string): Promise<void> {
-    console.log('Delete not implemented for localDB wrapper yet')    
+    try {
+        await deleteDoc(doc(db, "valentines", id));
+    } catch (error) {
+        console.error('Error deleting valentine:', error)
+    }
 }
+
