@@ -1,6 +1,7 @@
 import Header from './Header'
 import { FloatingHearts, GlassCard } from '../ui'
 import Form from './Form'
+import Link from 'next/link'
 
 const HomeComponent = () => {
   return (
@@ -18,11 +19,14 @@ const HomeComponent = () => {
           <Form />
         </GlassCard>
 
-        <footer className="text-center mt-12 text-dark-400 text-sm font-medium animate-fade-in" style={{ animationDelay: '0.8s' }}>
+        <footer className="text-center mt-12 text-[#5c4d3c] text-sm font-medium animate-fade-in space-y-2" style={{ animationDelay: '0.8s' }}>
           <p>Made with 💕 for lovers. Made by{' '}
-          <a href="https://www.joyantsgj.dev" target="_blank" rel="noopener noreferrer" className="font-bold hover:text-dark-500 transition-colors">
+          <a href="https://www.joyantsgj.dev" target="_blank" rel="noopener noreferrer" className="font-bold hover:text-[#2c1810] transition-colors">
             Joyant
           </a></p>
+          <p className="opacity-60">
+            <Link href="/privacy" className="hover:underline transition-all">গোপনীয়তা নীতিমালা (Privacy Policy)</Link>
+          </p>
         </footer>
       </div>
     </main>
