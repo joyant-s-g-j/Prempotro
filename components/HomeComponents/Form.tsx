@@ -96,7 +96,7 @@ const Form = () => {
             onChange={(e) => setLoveMessage(e.target.value)}
             required
             rows={6}
-            maxLength={2000}
+            maxLength={12000}
         />
 
         {error && (
@@ -113,7 +113,7 @@ const Form = () => {
             ✨ প্রেমপত্র তৈরি করুন
         </Button>
 
-        <p className="text-center text-gray-500 text-sm font-trio text-lg">
+        <p className="text-center text-gray-500 text-lg font-trio">
             আপনার প্রেমপত্রটি কয়েক সেকেন্ডের মধ্যেই তৈরি হয়ে যাবে!
         </p>
     </form>
